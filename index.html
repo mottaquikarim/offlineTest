@@ -19,11 +19,12 @@ window.addEventListener('load', function(e) {
       // Manifest didn't changed. Nothing new to server.
     }
     }, false);
-cache = window.applicationCache;
-cache.addEventListener('error', cacheErrorListener, false);
-function cacheErrorListener() {
-    alert('site not availble offline')
-}
+    cache = window.applicationCache;
+    cache.addEventListener('error', cacheErrorListener, false);
+    function cacheErrorListener() {
+        alert('site not availble offline')
+    }
+}, false);
         </script>
     </body>
 </html>

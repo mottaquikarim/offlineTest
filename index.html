@@ -3,13 +3,14 @@
         <title>Hello, Wrold!</title>
     </head>
     <body>
-        <h1>Hello!!!!</h1>
+        <h1 id="foobar">Hello!!!!</h1>
         <script type="text/javascript">
 // Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {
 
   if ( localStorage.getItem('foobar') ) {
-    alert( localStorage.getItem('foobar') );
+    document.getElementById( 'foobar' ).innerHTML = document.getElementById( 'foobar' ).innerHTML + localStorage.getItem( 'foobar' );
+    localStorage.setItem('foobar', 'time is ' + new Date() );
   }
   else {
     localStorage.setItem('foobar', 'time is ' + new Date() );
@@ -22,14 +23,14 @@ window.addEventListener('load', function(e) {
         window.location.reload();
       }
       } else {
-      alert('cached!');
+      console.log('cached!');
       // Manifest didn't changed. Nothing new to server.
     }
     }, false);
     cache = window.applicationCache;
     cache.addEventListener('error', cacheErrorListener, false);
     function cacheErrorListener() {
-        alert('site not availble offline')
+        console.log('site not availble offline')
     }
 }, false);
         </script>

@@ -1,4 +1,4 @@
-<html manifest="example.appcache">
+<html manifest="example.appcache"  type="text/cache-manifest">
     <head>
         <title>Hello, Wrold!</title>
     </head>
@@ -18,7 +18,13 @@ window.addEventListener('load', function(e) {
       alert('cached!');
       // Manifest didn't changed. Nothing new to server.
     }
-  }, false);
+    }, false);
+cache = window.applicationCache;
+cache.addEventListener('error', cacheErrorListener, false);
+function cacheUpdatereadyListener (){
+function cacheErrorListener() {
+    alert('site not availble offline')
+}
 
 }, false);
         </script>
